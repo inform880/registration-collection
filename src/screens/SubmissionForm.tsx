@@ -68,7 +68,7 @@ const SubmissionForm = () => {
 
     setIsLoading(true);
 
-    fetch("http://localhost:3001/", {
+    fetch("http://registration-14429.nodechef.com/", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formdata),

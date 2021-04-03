@@ -9,7 +9,7 @@ const Submissions = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:3001/", {
+    fetch("http://registration-14429.nodechef.com/", {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     }).then(response => response.json())
