@@ -19,7 +19,7 @@ const SubmissionConfirmation = () => {
   useEffect(() => {
     setIsLoading(true);
     if (id) {
-      fetch(`http://registration-14429.nodechef.com/?id=${id}`, {
+      fetch(`https://registration-14429.nodechef.com/?id=${id}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       }).then(response => response.json())
