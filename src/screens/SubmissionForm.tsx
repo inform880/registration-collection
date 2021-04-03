@@ -40,25 +40,33 @@ const SubmissionForm = () => {
     event.preventDefault();
     setFrontendError(null);
     setBackendError(null);
-    setIsLoading(true);
 
     const { firstname, lastname, address1, city, state, zip, country } = formdata;
 
     if (firstname === "") {
       setFrontendError("Please fill out first name");
+      return;
     } else if (lastname === "") {
       setFrontendError("Please fill out last name");
+      return;
     } else if (address1 === "") {
       setFrontendError("Please fill out address 1");
+      return;
     } else if (city === "") {
       setFrontendError("Please fill out city");
+      return;
     } else if (state === "") {
       setFrontendError("Please fill out state");
+      return;
     } else if (zip === "") {
       setFrontendError("Please fill out 5 digit Zip Code");
+      return;
     } else if (country === "") {
       setFrontendError("Please fill out country");
+      return;
     }
+
+    setIsLoading(true);
 
     fetch("http://localhost:3001/", {
       method: 'POST',
@@ -68,7 +76,6 @@ const SubmissionForm = () => {
       .then(response => response.json())
       .then((response) => {
         if (response.errors) {
-          console.log(response);
           setBackendError(response.errors);
           throw Error(response.statusText);
         }
@@ -77,6 +84,7 @@ const SubmissionForm = () => {
       .then(data => data['LAST_INSERT_ID()'] && history.push(`/submissions/${data['LAST_INSERT_ID()']}`))
       .then(() => setIsLoading(false))
       .catch(error => {
+        setFrontendError("Server is down, contact admin");
         setIsLoading(false);
       });
   }

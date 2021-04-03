@@ -36,10 +36,11 @@ const Submissions = () => {
           <th>State</th>
           <th>Zip</th>
           <th>Country</th>
+          <th>Timestamp</th>
         </tr>
       </thead>
       <tbody>
-        {tabledata.map(({ id, firstname, lastname, address1, address2 = "", city, state, zip, country }) =>
+        {tabledata.map(({ id, firstname, lastname, address1, address2 = "", city, state, zip, country, datetime }) =>
           <tr onClick={() => setSelectedRow(id)} key={id} className={id === selectedRow ? "active-row" : ""}>
             <td>{id}</td>
             <td>{firstname}</td>
@@ -50,6 +51,7 @@ const Submissions = () => {
             <td>{state}</td>
             <td>{zip}</td>
             <td>{country}</td>
+            <td>{new Date(datetime).toLocaleString()}</td>
           </tr>
         )}
       </tbody>
