@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const SubmissionConfirmation = () => {
   const { id } = useParams<Record<string, string | undefined>>();
@@ -33,7 +34,7 @@ const SubmissionConfirmation = () => {
   }, [id]);
 
   if (isLoading) {
-    return <p>Loading</p>;
+    <LoadingSpinner />
   }
 
   return (

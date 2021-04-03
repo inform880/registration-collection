@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import LoadingSpinner from "../components/LoadingSpinner";
 import "./Submissions.css";
 
 const Submissions = () => {
@@ -19,7 +20,7 @@ const Submissions = () => {
 
   if (isLoading) {
     return (
-      <p>Loading</p>
+      <LoadingSpinner />
     )
   }
 
