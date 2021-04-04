@@ -85,7 +85,6 @@ const SubmissionForm = () => {
       .then(data => data['LAST_INSERT_ID()'] && history.push(`/submissions/${data['LAST_INSERT_ID()']}`))
       .then(() => setIsLoading(false))
       .catch(error => {
-        setFrontendError("Server is down, contact admin");
         setIsLoading(false);
       });
   }
